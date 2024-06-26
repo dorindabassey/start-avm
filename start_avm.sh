@@ -245,9 +245,9 @@ ${QEMU} -name guest=cvd-1,debug-threads=on \
  -device virtio-serial-pci-non-transitional,max_ports=1,id=virtio-serial11 \
  -device virtconsole,bus=virtio-serial11.0,chardev=hvc11 \
  -drive file=${CVD_BASE_DIR}/qemu/system.img,format=raw,snapshot=on,if=none,id=drive-virtio-disk0,aio=threads \
-# -device virtio-blk-pci-non-transitional,scsi=off,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 \
+ -device virtio-blk-pci-non-transitional,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 \
  -drive file=${CVD_BASE_DIR}/qemu/${PROPERTIES},format=raw,snapshot=on,if=none,id=drive-virtio-disk1,aio=threads \
-# -device virtio-blk-pci-non-transitional,scsi=off,drive=drive-virtio-disk1,id=virtio-disk1 \
+ -device virtio-blk-pci-non-transitional,drive=drive-virtio-disk1,id=virtio-disk1 \
  -object rng-random,id=objrng0,filename=/dev/urandom \
  -device virtio-rng-pci-non-transitional,rng=objrng0,id=rng0,max-bytes=1024,period=2000 \
  -device ${INPUT},disable-legacy=on \
